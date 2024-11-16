@@ -2,12 +2,14 @@ import time
 import requests
 from hosts_file import loaded_hosts_from_file
 
-def add_www_to_domain(domain): # dodaje www. do domeny / namp nie wymaga www. ale GET tak
+
+def add_www_to_domain(domain,):  # dodaje www. do domeny / namp nie wymaga www. ale GET tak
     if not domain.startswith("www."):
         domain = "www." + domain
     return domain
 
-def get_data_from_url(url, timeout=5): # zgodnie z zaleceniem timeout na 5s
+
+def get_data_from_url(url, timeout=5):  # zgodnie z zaleceniem timeout na 5s
     try:
         response = requests.get(url, timeout=timeout)
 
@@ -20,6 +22,7 @@ def get_data_from_url(url, timeout=5): # zgodnie z zaleceniem timeout na 5s
         print(f"Request to {url} timed out after {timeout} seconds.")
     except requests.exceptions.RequestException as e:
         print(f"An error occurred while loading {url}: {e}")
+
 
 def get_data_from_hosts_file(file="hosts.txt"):
     hosts = loaded_hosts_from_file(file)
@@ -36,5 +39,4 @@ def get_data_from_hosts_file(file="hosts.txt"):
             url = f"http://{url_with_www}:{port}"
             print(f"Sending GET request to {url}")
             get_data_from_url(url)
-            time.sleep(1) # opoznienie miedzy zapytaniami
-
+            time.sleep(1)  # opoznienie miedzy zapytaniami

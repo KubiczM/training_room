@@ -1,14 +1,11 @@
 import subprocess
 from hosts_file import loaded_hosts_from_file
 
-def host_scan(host): # skanuje hosta
+
+def host_scan(host):  # skanuje hosta
     print(f"\nStarting host scanning: {host}")
     try:
-        result = subprocess.run(
-            ['nmap', '-sS', '1-65535', host],
-            capture_output=True,
-            text=True
-        )
+        result = subprocess.run(["nmap", "-sS", "1-65535", host], capture_output=True, text=True)
         if result.returncode == 0:
             print(f"Scan result for {host}:\n{result.stdout}")
             return result.stdout
@@ -20,7 +17,7 @@ def host_scan(host): # skanuje hosta
         return None
 
 
-def scan_hosts_from_file(file="hosts.txt"): # wczytuje hosty z pliku i skanuje je host_scan'em
+def scan_hosts_from_file(file="hosts.txt"):  # wczytuje hosty z pliku i skanuje je host_scan'em
     hosts_from_file = loaded_hosts_from_file(file)
 
     if hosts_from_file:
@@ -28,6 +25,3 @@ def scan_hosts_from_file(file="hosts.txt"): # wczytuje hosty z pliku i skanuje j
             host_scan(host)
     else:
         print("No hosts to scan.")
-
-
-

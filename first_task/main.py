@@ -1,4 +1,3 @@
-
 from hosts_file import add_host
 from hosts_file import loaded_hosts_from_file
 from scan import scan_hosts_from_file
