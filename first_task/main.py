@@ -5,7 +5,7 @@ from request import get_data_from_hosts_file
 
 
 def run_program():
-    add_host("forcedeye.com")
+    add_host("forcedeye.com", "onet.pl")
 
     hosts = loaded_hosts_from_file()
     print(f"Loaded hosts: {hosts}")

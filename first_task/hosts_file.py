@@ -33,9 +33,7 @@ def save_hosts(new_hosts):  # tutaj jest tworzenie wyzej wspomnianego pliku
 def loaded_hosts_from_file(text_file="hosts.txt"):  # wczytuje hosty z hosts.txt
     try:
         with open(text_file, "r") as file:
-            loaded_hosts = [
-                line.strip() for line in file if line.strip()
-            ]  # usuwam puste linie
+            loaded_hosts = [line.strip() for line in file if line.strip()]  # usuwam puste linie
         return loaded_hosts
     except FileNotFoundError:
         print(f"File '{text_file}' not found.")

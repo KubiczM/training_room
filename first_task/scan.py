@@ -5,7 +5,7 @@ from hosts_file import loaded_hosts_from_file
 def host_scan(host):  # skanuje hosta
     print(f"\nStarting host scanning: {host}")
     try:
-        result = subprocess.run(["nmap", "-sS", "1-65535", host], capture_output=True, text=True)
+        result = subprocess.run(["nmap", "-sT", "1-65535", host], capture_output=True, text=True)
         if result.returncode == 0:
             print(f"Scan result for {host}:\n{result.stdout}")
             return result.stdout

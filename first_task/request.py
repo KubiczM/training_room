@@ -29,7 +29,6 @@ def get_data_from_hosts_file(file="hosts.txt"):
 
     if not hosts:
         print("No hosts found in file.")
-        return
 
     ports_to_check = range(1, 65536)
 
