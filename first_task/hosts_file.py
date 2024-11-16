@@ -8,7 +8,7 @@ def add_host(*args,):  # dodaje hosty do listy 'hosts' i zapisuje je w pliku, un
         if host not in current_hosts and host not in hosts:
             hosts.append(host)
         else:
-            print(f"Host '{host}' already exists in list or file.")
+            print(f"Host '{host}' already exists in list.")
 
     print("Hosts added:")
     for host in args:
